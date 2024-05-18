@@ -53,4 +53,7 @@ app.*.map.json
 # Generated dart files
 **/*.g.dart
 
+lib/firebase_options.dart
+firebase.json
+
 pubspec_overrides.yaml

@@ -1,5 +1,7 @@
 plugins {
     id "com.android.application"
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
 }
@@ -30,7 +32,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace "com.nft.observer"
-    compileSdk flutter.compileSdkVersion
+    compileSdk 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -48,7 +50,7 @@ android {
 
     defaultConfig {
         applicationId "com.nft.observer"
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -74,4 +76,8 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-crashlytics")
+}
