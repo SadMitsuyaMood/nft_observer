@@ -1,5 +1,7 @@
+#!/bin/bash
+
 cd ..
-for core
+for folder in core
 do
     echo "*** $folder ***"
     cd "$folder"

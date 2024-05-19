@@ -38,13 +38,3 @@ rmFiles "./*" "Podfile.lock"
 rmFiles "./*" "pubspec.lock"
 rmFiles "./*" ".g.dart"
 rmFiles "./*" ".gr.dart"
-
-#flutter clean && flutter clean cache
-#
-#for folder in core
-#do
-#    echo "*** $folder ***"
-#    cd "$folder"
-#    flutter clean && flutter clean cache
-#    cd ..
-#done
