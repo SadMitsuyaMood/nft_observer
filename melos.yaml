@@ -1,0 +1,19 @@
+name: gimbutis
+
+packages:
+  - .
+  - core
+
+scripts:
+  clean:
+    melos clean &&
+    /bin/bash scripts/delete_generated_files.sh
+
+  setup:
+    melos bootstrap && 
+    cd core &&
+    dart run easy_localization:generate -S ../assets/translations/ -O lib/src/localization -f keys -o locale_keys.g.dart &&
+    dart run easy_localization:generate -S ../assets/translations/ -O lib/src/localization &&
+    cd .. &&
+    melos exec --depends-on="build_runner" --fail-fast -- dart run build_runner build --delete-conflicting-outputs
+
