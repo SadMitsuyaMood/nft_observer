@@ -3,6 +3,8 @@ name: gimbutis
 packages:
   - .
   - core
+  - features/splash
+  - navigation
 
 scripts:
   clean:

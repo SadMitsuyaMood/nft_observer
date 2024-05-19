@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:navigation/navigation.dart';
 
 class NFTObserverApplication extends StatelessWidget {
   @override
@@ -17,10 +18,24 @@ class NFTObserverApplication extends StatelessWidget {
   }
 }
 
-class _NFTObserverApplication extends StatelessWidget {
+class _NFTObserverApplication extends StatefulWidget {
+  @override
+  State<_NFTObserverApplication> createState() => _NFTObserverApplicationState();
+}
+
+class _NFTObserverApplicationState extends State<_NFTObserverApplication> {
+  final NavigatorObservers navigatorObservers = NavigatorObservers();
+  late final NFTObserverRouter router;
+
+  @override
+  void initState() {
+    super.initState();
+    router = serviceLocator<NFTObserverRouter>();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
@@ -30,11 +45,7 @@ class _NFTObserverApplication extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Scaffold(
-        body: Center(
-          child: Text(LocaleKeys.language.tr()),
-        ),
-      ),
+      routerConfig: router.config(navigatorObservers: () => <NavigatorObserver>[navigatorObservers.firebaseAnalytics]),
     );
   }
 }

@@ -1,6 +1,5 @@
-name: nft_observer
-description: "NFT observer application"
-version: 1.0.0+1
+name: splash
+version: 0.0.1
 publish_to: none
 
 environment:
@@ -12,12 +11,10 @@ dependencies:
     sdk: flutter
 
   core:
-    path: ./core
+    path: ../../core
 
   navigation:
-    path: ./navigation
-
-  cupertino_icons: ^1.0.6
+    path: ../../navigation
 
 dev_dependencies:
   flutter_test:
@@ -25,10 +22,5 @@ dev_dependencies:
 
   analyzer: ^6.4.1
   flutter_lints: ^3.0.0
-  melos: ^6.0.0
-
-flutter:
-  uses-material-design: true
-
-  assets:
-    - assets/translations/
+  auto_route_generator: 7.3.2
+  build_runner: ^2.4.8
