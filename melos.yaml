@@ -3,6 +3,7 @@ name: gimbutis
 packages:
   - .
   - core
+  - core_ui
   - features/splash
   - navigation
 

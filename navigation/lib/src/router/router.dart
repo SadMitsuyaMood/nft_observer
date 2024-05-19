@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:splash/splash.dart';
 
-part 'nft_observer_router.gr.dart';
+part 'router.gr.dart';
 
 @AutoRouterConfig(
   replaceInRouteName: 'Page|Screen,Route',

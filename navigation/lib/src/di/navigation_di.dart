@@ -1,5 +1,5 @@
 import 'package:core/core.dart';
-import 'package:navigation/src/router/nft_observer_router.dart';
+import 'package:navigation/src/router/router.dart';
 
 abstract class NavigationDI {
   static void initializeDependencies() {

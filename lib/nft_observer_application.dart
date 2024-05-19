@@ -1,5 +1,7 @@
 import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:navigation/navigation.dart';
 
 class NFTObserverApplication extends StatelessWidget {
@@ -35,17 +37,21 @@ class _NFTObserverApplicationState extends State<_NFTObserverApplication> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      //TODO update Theme
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    //TODO update with cached logic
+    final NFTObserverTheme theme = const LightTheme();
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: theme.systemUiOverlayStyle,
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        theme: theme.themeData,
+        routerConfig: router.config(
+          navigatorObservers: () => <NavigatorObserver>[navigatorObservers.firebaseAnalytics],
+        ),
       ),
-      routerConfig: router.config(navigatorObservers: () => <NavigatorObserver>[navigatorObservers.firebaseAnalytics]),
     );
   }
 }

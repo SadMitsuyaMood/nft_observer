@@ -1,4 +1,4 @@
-name: splash
+name: core_ui
 version: 0.0.1
 publish_to: none
 
@@ -11,13 +11,9 @@ dependencies:
     sdk: flutter
 
   core:
-    path: ../../core
+    path: ../core
 
-  core_ui:
-    path: ../../core_ui
-
-  navigation:
-    path: ../../navigation
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -25,5 +21,3 @@ dev_dependencies:
 
   analyzer: ^6.4.1
   flutter_lints: ^3.0.0
-  auto_route_generator: 7.3.2
-  build_runner: ^2.4.8
