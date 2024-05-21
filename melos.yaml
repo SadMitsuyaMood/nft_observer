@@ -4,6 +4,8 @@ packages:
   - .
   - core
   - core_ui
+  - data
+  - domain
   - features/splash
   - navigation
 

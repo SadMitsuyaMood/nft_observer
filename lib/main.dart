@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:core/core.dart';
+import 'package:data/data.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:navigation/navigation.dart';
@@ -22,6 +24,8 @@ void main() async {
     await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
 
     NavigationDI.initializeDependencies();
+    await DataDI.registerDependencies();
+    DomainDI.registerDependencies();
 
     FlutterError.onError = (FlutterErrorDetails errorDetails) {
       FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
